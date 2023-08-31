@@ -12,9 +12,9 @@ This project uses _python_ to understand U.S. bikeshare data. It offers an inter
 
 ### Files used
 Three dataset files were used:
-chicago.csv
-new_york_city.csv
-washington.csv
+-chicago.csv
+-new_york_city.csv
+-washington.csv
 
 ### Credits
 Repository was forked from [Udacity](https://github.com/udacity/pdsnd_github.git) 
