@@ -4,11 +4,11 @@
 This project was created on **August 20th 2023**
 The Readme file for the project was created on **August 31st 2023**
 
-### Project Title
-Replace the Project Title
+# Explore US Bikeshare Data
+
 
 ### Description
-Describe what your project is about and what it does
+This project uses _python_ to understand U.S. bikeshare data. It offers an interactive environment where a user chooses the data and filter for a dataset to analyze and calculate some statistics.
 
 ### Files used
 Include the files used
