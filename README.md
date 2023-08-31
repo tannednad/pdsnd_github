@@ -1,5 +1,5 @@
 ### Date created
-This project was created on **August 20th 2023**
+This project was created on **August 20th 2023**  
 The Readme file for the project was created on **August 31st 2023**
 
 # Explore US Bikeshare Data
@@ -10,9 +10,9 @@ This project uses _python_ to understand U.S. bikeshare data. It offers an inter
 
 ### Files used
 Three dataset files were used:
--chicago.csv
--new_york_city.csv
--washington.csv
+- chicago.csv
+- new_york_city.csv
+- washington.csv
 
 ### Credits
 Repository was forked from [Udacity](https://github.com/udacity/pdsnd_github.git) 
