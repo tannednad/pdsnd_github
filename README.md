@@ -11,7 +11,10 @@ The Readme file for the project was created on **August 31st 2023**
 This project uses _python_ to understand U.S. bikeshare data. It offers an interactive environment where a user chooses the data and filter for a dataset to analyze and calculate some statistics.
 
 ### Files used
-Include the files used
+Three dataset files were used:
+chicago.csv
+new_york_city.csv
+washington.csv
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
