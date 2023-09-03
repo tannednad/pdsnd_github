@@ -1,14 +1,31 @@
 import time
 import pandas as pd
 
-CITY_DATA = { 'chicago': 'chicago.csv',
-              'new york city': 'new_york_city.csv',
-              'washington': 'washington.csv' }
+CITY_DATA = { 'Chicago': 'chicago.csv',
+              'New york city': 'new_york_city.csv',
+              'Washington': 'washington.csv' }
+def get_valid_input(prompt, options):
+    """
+    Asks user for input and validates if it is one of the given options.
+ 
+    Args:
+        prompt (str): The prompt to display to the user.
+        options (list): The list of valid options.
+ 
+    Returns:
+        (str) input - The user's valid input.
+    """
+    while True:
+        user_input = input(prompt).title()
+        if user_input in options:
+            return user_input
+        else:
+            print("Please try again and make sure you typed the input correctly.")
 
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
-
+ 
     Returns:
         (str) city - name of the city to analyze
         (str) month - name of the month to filter by, or "all" to apply no month filter
@@ -17,28 +34,16 @@ def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!')
     
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    city_options = ["Chicago", "New york city", "Washington"]
+    city = get_valid_input("Would you like to see the data for Chicago, New York City, or Washington? ", city_options)
     
-    city = input("Would you like to see tha data for Chicago, New York City, or Washington? ").lower()
-    
-    while city not in ["chicago", "new york city", "washington"]:
-        city = input("Please try again and make sure you typed the name of the city correctly. ").lower()
-
-            
     # get user input for month (all, january, february, ... , june)
+    month_options = ["January", "February","March","April","June","All"]
+    month = get_valid_input("Enter any of the first 6 months to filter by or enter All to select all 6 months. ", month_options)
     
-    month = input("Enter any of the first 6 months to filter by or enter All to select all 6 months. ").lower()
-    
-    while month not in ["january", "february","march","april","june","all"]:
-        month = input("Please make sure you typed the name of the month correctly within the first 6 months. ").lower()
-
-    
-
     # get user input for day of week (all, monday, tuesday, ... sunday)
-    
-    day = input("Which day of the week would you like to filter by? Enter All to apply no day filter. ").title()
-    
-    while day not in ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","All"]:
-        day = input("Please try again and make sure you typed the name of the day correctly. ").title()
+    day_options = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","All"]
+    day = get_valid_input("Which day of the week would you like to filter by? Enter All to apply no day filter. ", day_options)
       
     print('-'*40)
     return city, month, day
@@ -57,8 +62,8 @@ def load_data(city, month,day):
 
     df = pd.read_csv(CITY_DATA[city])
     
-    months_values = {'january':1 , 'february':2 , 'march':3 , 
-                     'april':4 , 'may':5 , 'june':6}
+    months_values = {'January':1 , 'February':2 , 'March':3 , 
+                     'April':4 , 'May':5 , 'June':6}
     
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['hour'] = df['Start Time'].dt.hour
@@ -67,7 +72,7 @@ def load_data(city, month,day):
     
     if day != "All":
         df = df[df['day_of_week'] == day]
-    if month != "all":
+    if month != "All":
         df = df[df['month'] == months_values[month]]
         
     return df
@@ -231,7 +236,7 @@ def main():
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
-        if city != 'washington':
+        if city != 'Washington':
             user_stats(df)
         else:
             user_stats_w(df)
